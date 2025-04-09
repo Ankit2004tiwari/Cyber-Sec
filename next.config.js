@@ -2,9 +2,7 @@
 const path = require('path');
 
 const nextConfig = {
-  // Remove experimental serverActions as it's now stable in Next.js 14
   
-  // Add security headers
   headers: async () => [
     {
       source: '/:path*',
