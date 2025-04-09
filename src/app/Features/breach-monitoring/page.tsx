@@ -221,7 +221,6 @@ export default function BreachMonitoringPage() {
           }),
         });
         const data = await response.json();
-
         const formattedData = [
           {
             id: 1,

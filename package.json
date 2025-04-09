@@ -9,8 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@huggingface/inference": "^3.7.0",
     "@netlify/next": "^1.4.9",
+=======
+>>>>>>> da4c3ff5ff49d019bf8fc4947019a1719ce4ed32
     "@radix-ui/react-select": "^2.1.6",
     "@tsparticles/all": "^3.8.1",
     "@tsparticles/engine": "^3.8.1",

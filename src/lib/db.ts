@@ -3,6 +3,7 @@
 import mysql from 'mysql2/promise';
 
 const {
+<<<<<<< HEAD
   DB_HOST = 'localhost',
   DB_USER = 'root',
   DB_PASSWORD,
@@ -93,5 +94,28 @@ export async function testConnection() {
     return false;
   }
 }
+=======
+  DB_HOST,
+  DB_USER,
+  DB_PASSWORD,
+  DB_NAME,
+  DB_PORT = '3306',
+} = process.env;
+
+if (!DB_HOST || !DB_USER || !DB_PASSWORD || !DB_NAME) {
+  throw new Error('❌ Missing one or more required environment variables for MySQL connection.');
+}
+
+const pool = mysql.createPool({
+  host: DB_HOST,
+  user: DB_USER,
+  password: DB_PASSWORD,
+  database: DB_NAME,
+  port: parseInt(DB_PORT, 10),
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
+});
+>>>>>>> da4c3ff5ff49d019bf8fc4947019a1719ce4ed32
 
 export default pool;
