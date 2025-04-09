@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const path = require('path');
-<<<<<<< HEAD
 
 const nextConfig = {
   // Remove experimental serverActions as it's now stable in Next.js 14
@@ -33,16 +32,6 @@ const nextConfig = {
   },
 
   // Your existing webpack config
-=======
-const withNetlify = require('@netlify/next');
-
-const nextConfig = {
-  experimental: {
-    serverActions: {
-      allowedOrigins: ['localhost:3000', 'localhost:3001'],
-    },
-  },
->>>>>>> da4c3ff5ff49d019bf8fc4947019a1719ce4ed32
   webpack: (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,
@@ -50,7 +39,6 @@ const nextConfig = {
     };
     return config;
   },
-<<<<<<< HEAD
 
   // Your existing env config
   env: {
@@ -63,13 +51,7 @@ const nextConfig = {
   swcMinify: true,
 };
 
-// Export the config without Netlify wrapper unless you specifically need it
-module.exports = nextConfig;
-=======
-  env: {
-    HUGGINGFACE_API_KEY: process.env.HUGGINGFACE_API_KEY,
-  },
+module.exports = {
+  ...nextConfig,
+  trailingSlash: true,
 };
-
-module.exports = withNetlify(nextConfig);
->>>>>>> da4c3ff5ff49d019bf8fc4947019a1719ce4ed32
