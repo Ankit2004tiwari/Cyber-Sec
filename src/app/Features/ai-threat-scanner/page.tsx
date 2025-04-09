@@ -38,44 +38,43 @@ export default function AIThreatScanner() {
   const [aiResult, setAiResult] = useState("");
 
   const handleScan = async () => {
-  setScanning(true);
-  setAiResult("");
-
-  const prompt = `
-You are an AI cyber threat scanner. Analyze the following input and return:
-
-Risk Level: (High / Medium / Low)
-Tags: [comma-separated keywords]
-Threat: (brief description)
-Mitigation: (how to protect against it)
-
-Input: ${scanType === "file" ? "Uploaded file data" : inputValue}
-  `;
-
-  try {
-    const res = await fetch("/api/scan", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ prompt }),
-    });
-
-    const data = await res.json();
-
-    // ✅ Fix: extract generated_text string safely
-    const resultText = Array.isArray(data.result)
-      ? data.result[0]?.generated_text || "❌ Invalid AI response"
-      : typeof data.result === "string"
-      ? data.result
-      : "❌ Unexpected AI output format";
-
-    setAiResult(resultText);
-  } catch (err) {
-    setAiResult("❌ Error occurred while scanning.");
-  }
-
-  setScanning(false);
-};
-
+    setScanning(true);
+    setAiResult("");
+  
+    const prompt = `
+  You are an AI cyber threat scanner. Analyze the following input and return:
+  
+  Risk Level: (High / Medium / Low)
+  Tags: [comma-separated keywords]
+  Threat: (brief description)
+  Mitigation: (how to protect against it)
+  
+  Input: ${scanType === "file" ? "Uploaded file data" : inputValue}
+    `;
+  
+    try {
+      const res = await fetch("/api/scan", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt }),
+      });
+  
+      const data = await res.json();
+  
+      // ✅ Fix: extract generated_text string safely
+      const resultText = Array.isArray(data.result)
+        ? data.result[0]?.generated_text || "❌ Invalid AI response"
+        : typeof data.result === "string"
+        ? data.result
+        : "❌ Unexpected AI output format";
+  
+      setAiResult(resultText);
+    } catch (err) {
+      setAiResult("❌ Error occurred while scanning.");
+    }
+  
+    setScanning(false);
+  };
   
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 p-6 relative overflow-hidden">
