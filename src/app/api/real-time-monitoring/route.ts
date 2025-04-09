@@ -10,6 +10,9 @@ export async function POST() {
   let connection;
   try {
     const pool = connectDB;
+    if (!pool) {
+      throw new Error('Database connection pool is not initialized');
+    }
     connection = await pool.getConnection();
 
     const [threats] = await connection.execute(
