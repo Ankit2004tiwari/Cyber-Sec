@@ -1,6 +1,6 @@
-# 🔐 CyberSec AI – Advanced Cybersecurity Web App
+# 🔐 NexoraSec AI – Advanced Cybersecurity Web App
 
-Welcome to **CyberSec AI**, a modern, AI-enhanced cybersecurity dashboard that integrates cutting-edge threat detection, secure vault management, breach monitoring, and more. Built using **Next.js**, **MySQL**, **Tailwind CSS**, and integrated with **Hugging Face AI models**, this platform offers a powerful blend of functionality, aesthetics, and performance.
+Welcome to **NexoraSec AI**, a modern, AI-enhanced cybersecurity dashboard that integrates cutting-edge threat detection, secure vault management, breach monitoring, and more. Built using **Next.js**, **MySQL**, **Tailwind CSS**, and integrated with **Hugging Face AI models**, this platform offers a powerful blend of functionality, aesthetics, and performance.
 
 ---
 
@@ -235,4 +235,4 @@ Pull requests are welcome! Please open an issue first to discuss changes.
 ---
 
 ✅ PDF documentation and visual pitch decks available upon request. 
-✨ Stay secure, stay smart with **CyberSec AI**!
+✨ Stay secure, stay smart with **NexoraSec AI**!

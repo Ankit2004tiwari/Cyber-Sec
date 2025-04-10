@@ -54,7 +54,7 @@ export default function Header({ session }: { session: any }) {
           href="/"
           className="text-2xl font-extrabold tracking-tight hover:text-accent transition"
         >
-          CyberSec
+          NexoraSec
         </Link>
 
         {/* Desktop nav */}

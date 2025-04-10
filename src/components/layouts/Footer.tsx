@@ -52,7 +52,7 @@ export default function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
         >
-          <h3 className="text-2xl font-extrabold mb-3 tracking-tight text-primary">CyberSec</h3>
+          <h3 className="text-2xl font-extrabold mb-3 tracking-tight text-primary">NexoraSec</h3>
           <p className="text-muted-foreground max-w-xs">
             Protecting your digital future with cutting-edge solutions.
           </p>
@@ -60,7 +60,7 @@ export default function Footer() {
             <SocialIcon Icon={Facebook} href="#" />
             <SocialIcon Icon={Twitter} href="#" />
             <SocialIcon Icon={Linkedin} href="#" />
-            <SocialIcon Icon={Mail} href="mailto:contact@cybersec.com" />
+            <SocialIcon Icon={Mail} href="mailto:contact@nexorasec.com" />
           </div>
         </motion.div>
 
@@ -118,7 +118,7 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="mt-10 text-center text-sm text-muted-foreground px-4">
-        &copy; {new Date().getFullYear()} CyberSec. All rights reserved.
+        &copy; {new Date().getFullYear()} NexoraSec. All rights reserved.
       </div>
     </footer>
   )
