@@ -7,7 +7,7 @@ import Header from '../components/layouts/Header'
 import Footer from '../components/layouts/Footer'
 import Navbar from '@/components/Navbar'
 import { ThemeProvider } from 'next-themes'
-import PageWrapper from '@/components/PageWrapper' // ✅ Framer Motion wrapper
+import PageWrapper from '@/components/PageWrapper'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,15 +25,17 @@ export default async function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/Nexora-Sec.ico" />
+      </head>
       <body className={`min-h-screen flex flex-col ${inter.className}`}>
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <SessionProvider session={session}>
-        <Navbar />
-        <PageWrapper>{children}</PageWrapper>
-        <Footer />
-        </SessionProvider>
-      </ThemeProvider>
-
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <SessionProvider session={session}>
+            <Navbar />
+            <PageWrapper>{children}</PageWrapper>
+            <Footer />
+          </SessionProvider>
+        </ThemeProvider>
       </body>
     </html>
   )

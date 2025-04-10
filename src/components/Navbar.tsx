@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import { Moon, Sun, Menu, X } from 'lucide-react';
+import Image from 'next/image'; 
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -24,8 +25,16 @@ export default function Navbar() {
     <nav className="bg-white dark:bg-gray-900 shadow-md sticky top-0 z-50 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
         {/* Logo */}
-        <Link href="/" className="text-2xl font-bold text-blue-600 dark:text-white">
-          CyberSecure
+        <Link href="/" className="flex items-center space-x-2">
+          <Image
+            src="/Nex-Sec.png" 
+            alt="Nexorasec Logo"
+            width={80} 
+            height={80} 
+          />
+          <span className="text-2xl font-bold text-blue-600 dark:text-white">
+            &nbsp;&nbsp;NexoraSec
+          </span>
         </Link>
 
         {/* Desktop Nav Links */}
