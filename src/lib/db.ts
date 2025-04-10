@@ -1,5 +1,3 @@
-// lib/db.ts
-
 import mysql from 'mysql2/promise';
 
 const {
@@ -10,10 +8,9 @@ const {
   DB_PORT = '3306',
 } = process.env;
 
-// Create a connection pool with error handling
 const createPool = () => {
   try {
-    return mysql.createPool({
+    const pool = mysql.createPool({
       host: DB_HOST,
       user: DB_USER,
       password: DB_PASSWORD,
@@ -25,8 +22,11 @@ const createPool = () => {
       enableKeepAlive: true,
       keepAliveInitialDelay: 0
     });
+
+    console.log('✅ MySQL pool created with host:', DB_HOST);
+    return pool;
   } catch (error) {
-    console.error('Failed to create connection pool:', error);
+    console.error('❌ Failed to create connection pool:', error);
     return null;
   }
 };
@@ -35,18 +35,15 @@ const pool = createPool();
 
 export async function connectDB() {
   try {
-    // If no password is set, throw a clear error
     if (!DB_PASSWORD) {
       throw new Error('Database password not configured in environment variables');
     }
 
-    // Try pool first if available
     if (pool) {
       const connection = await pool.getConnection();
       return connection;
     }
 
-    // Fallback to direct connection if pool fails
     const connection = await mysql.createConnection({
       host: DB_HOST,
       user: DB_USER,
@@ -55,33 +52,25 @@ export async function connectDB() {
       port: parseInt(DB_PORT, 10)
     });
 
-    // Test the connection
     await connection.ping();
-    
     return connection;
+
   } catch (error) {
-    console.error('Database connection failed:', error);
-    
-    // Return a mock connection for development/testing
+    console.error('❌ Database connection failed:', error);
+
     if (process.env.NODE_ENV === 'development') {
       return {
-        execute: async () => {
-          return [[], []];
-        },
-        query: async () => {
-          return [[], []];
-        },
+        execute: async () => [[], []],
+        query: async () => [[], []],
         end: async () => {},
-        ping: async () => {},
-        // Add other necessary mock methods
+        ping: async () => {}
       };
     }
-    
+
     throw error;
   }
 }
 
-// Helper function to check database connection
 export async function testConnection() {
   try {
     const connection = await connectDB();
@@ -89,7 +78,7 @@ export async function testConnection() {
     await connection.end();
     return true;
   } catch (error) {
-    console.error('Database connection test failed:', error);
+    console.error('❌ Database connection test failed:', error);
     return false;
   }
 }
