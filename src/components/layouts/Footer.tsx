@@ -14,23 +14,25 @@ const footerData = [
       { href: '/services/training', label: 'Training' },
       { href: '/services/auditing', label: 'Auditing' },
       { href: '/services/monitoring', label: 'Monitoring' },
+      { href: '/services/analytics', label: 'Analytics' },
+      { href: '/services/workshops', label: 'Workshops' }
     ],
   },
   {
     title: 'Resources',
     links: [
-      { href: '/blog', label: 'Blog' },
-      { href: '/whitepapers', label: 'Whitepapers' },
-      { href: '/case-studies', label: 'Case Studies' },
-      { href: '/webinars', label: 'Webinars' },
+      { href: '/resources/blog', label: 'Blog' },
+      { href: '/resources/whitepapers', label: 'Whitepapers' },
+      { href: '/resources/case-studies', label: 'Case Studies' },
+      { href: '/resources/webinars', label: 'Webinars' },
     ],
   },
   {
     title: 'Contact',
     links: [
-      { href: '/contact', label: 'Get in Touch' },
-      { href: '/support', label: 'Support' },
-      { href: '/careers', label: 'Careers' },
+      { href: '/contacts/get-in-touch', label: 'Get in Touch' },
+      { href: '/contacts/support', label: 'Support' },
+      { href: '/contacts/careers', label: 'Careers' },
     ],
   },
 ]

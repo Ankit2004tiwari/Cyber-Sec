@@ -26,7 +26,7 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/Nexora-Sec.ico" />
+        <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={`min-h-screen flex flex-col ${inter.className}`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
