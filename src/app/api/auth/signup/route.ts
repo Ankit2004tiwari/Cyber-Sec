@@ -15,7 +15,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: 'Database connection error' }, { status: 500 });
     }
 
-    const [existingUsers] = await pool.execute(
+    const [existingUsers] = await pool!.execute(
       'SELECT id FROM users WHERE email = ?',
       [email]
     );
@@ -26,7 +26,7 @@ export async function POST(request: Request) {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    await pool.execute(
+    await pool!.execute(
       'INSERT INTO users (name, email, password) VALUES (?, ?, ?)',
       [name, email, hashedPassword]
     );
