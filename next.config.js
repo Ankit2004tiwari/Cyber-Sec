@@ -15,6 +15,7 @@ const nextConfig = {
   images: {
     domains: [],
     minimumCacheTTL: 60,
+    unoptimized: true,
   },
   webpack: (config) => {
     config.resolve.alias = {
@@ -28,7 +29,6 @@ const nextConfig = {
   },
   poweredByHeader: false,
   reactStrictMode: true,
-  swcMinify: true,
   trailingSlash: true,
 };
 
