@@ -1,5 +1,3 @@
-// /app/api/auth/signup/route.ts
-
 import { NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
 import pool from '@/lib/db';
@@ -10,6 +8,11 @@ export async function POST(request: Request) {
 
     if (!name || !email || !password) {
       return NextResponse.json({ message: 'Missing required fields' }, { status: 400 });
+    }
+
+    if (!pool) {
+      console.error('Database pool was not initialized');
+      return NextResponse.json({ message: 'Database connection error' }, { status: 500 });
     }
 
     const [existingUsers] = await pool.execute(

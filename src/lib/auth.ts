@@ -14,6 +14,9 @@ export const authOptions: NextAuthOptions = {
       },
       async authorize(credentials) {
         if (!credentials) return null;
+        if (!pool) {
+          throw new Error('Database connection pool is not initialized.');
+        }
         const [rows]: any = await pool.query('SELECT * FROM users WHERE email = ?', [credentials.email]);
         const user = rows[0];
         if (!user) return null;

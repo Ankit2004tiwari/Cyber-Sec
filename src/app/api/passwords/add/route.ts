@@ -15,6 +15,10 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
+    if (!pool) {
+      return NextResponse.json({ error: 'Database connection is not available' }, { status: 500 })
+    }
+
     await pool.query(
       'INSERT INTO stored_passwords (user_id, platform, username, password) VALUES (?, ?, ?, ?)',
       [session.user.id, platform, username, password]

@@ -12,6 +12,10 @@ export async function DELETE(req: Request) {
   const { id } = await req.json();
 
   try {
+    if (!pool) {
+      console.error('Database connection pool is not initialized.');
+      return NextResponse.json({ message: 'Internal server error' }, { status: 500 });
+    }
     const [result] = await pool.query('DELETE FROM stored_passwords WHERE id = ? AND user_id = ?', [
       id,
       session.user.id,

@@ -9,6 +9,11 @@ export async function GET() {
   if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
   try {
+    if (!pool) {
+      console.error('Database pool is not initialized.')
+      return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
+    }
+
     const [rows] = await pool.query(
       'SELECT id, platform, username, password FROM stored_passwords WHERE user_id = ?',
       [session.user.id]
