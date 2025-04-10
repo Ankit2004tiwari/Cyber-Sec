@@ -27,7 +27,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
           <Image
-            src="/Nex-Sec.png" 
+            src="/logo.png" 
             alt="Nexorasec Logo"
             width={80} 
             height={80} 
